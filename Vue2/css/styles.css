@@ -1,0 +1,228 @@
+/* Importation de la police Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Rules */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Changement de la police */
+    background-color: #fdfdfd;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* Styling for the Features list */
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding-left: 0; /* Remove any default left padding */
+    margin: 0; /* Remove any margin */
+}
+
+
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    width: 100%; /* Ensures the wrapper takes full width available */
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.5rem;
+    font-weight: 600; /* Bold header/footer text */
+    text-transform: uppercase; /* Uppercase for a sleek look */
+}
+
+/* Main Content */
+main.main-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-weight: 300; /* Light font weight for main content */
+}
+
+h1, h2 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+    font-weight: 600; /* Bold titles for emphasis */
+}
+
+/* Card Styles */
+.card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 600; /* Bold subheading */
+}
+
+.card p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Product Status */
+.product-status span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400; /* Lighter weight for buttons */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button.disabled-btn {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Cart Display */
+.cart {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+/* Color Options */
+.color-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.color-circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.color-circle:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+}
+
+img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* Styling for the table container */
+.main-sidebar {
+    border: 3px solid #2c8c3c; /* Green border, a bit thinner */
+    border-radius: 8px; /* Slightly rounded corners */
+    padding: 15px;
+    background-color: #eaf6ea; /* Light green background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%; /* Ensures responsiveness */
+    max-width: 600px; /* Limits width for large screens */
+    overflow-x: auto; /* Allows horizontal scroll if needed */
+    margin: 0 auto; /* Centers the table horizontally */
+}
+
+/* Styling for <dt> (terms) */
+dt {
+    background-color: #4CAF50; /* Darker green for terms */
+    color: white; /* White text for contrast */
+    font-weight: 600; /* Bold text for emphasis */
+    padding: 8px 10px; /* Reduced padding */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 5px; /* Space between each term */
+    cursor: default; /* Prevent interaction with the title */
+}
+
+/* Styling for <dd> (definitions) */
+dd {
+    background-color: #f1f8f1; /* Light greenish background */
+    padding: 8px; /* Reduced padding */
+    margin: 5px 0; /* Space between each definition */
+    border-radius: 5px; /* Rounded corners */
+    font-style: italic; /* Optional: makes definitions look distinct */
+    color: #333; /* Darker text for readability */
+}
+
+/* Add a media query to handle smaller screen sizes */
+@media (max-width: 768px) {
+    .main-sidebar {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    /* Adjust the dt and dd padding for smaller screens */
+    dt, dd {
+        font-size: 0.9rem; /* Smaller font size for smaller screens */
+        padding: 6px 8px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-sidebar {
+        padding: 8px;
+    }
+
+    dt, dd {
+        font-size: 0.8rem; /* Smaller font size */
+        padding: 5px 6px; /* Further adjust padding for small screens */
+    }
+}
+
+.addTocart {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: default;
+    transition: transform 0.3s;
+}

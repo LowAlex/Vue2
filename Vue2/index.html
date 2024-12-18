@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Boxers Sale</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            Stylish Boxers
+            <br>
+            Your Comfort, Our Priority
+        </header>
+
+        <main id="app" class="main-content">
+            <h1>{{ brand + ' ' + product }}</h1>
+
+            <h2>{{ title }}</h2>
+
+            <section class="card">
+                
+                <p>{{ product }} {{ description }}. Discover more at <a :href="url" target="_blank">our official page</a>!</p>
+
+                <div class="product-status">
+                    <p>
+                        Item Status:
+                        <span v-if="selectedOption.quantity>0">In Stock <br>{{'Stock available:'+ selectedOption.quantity }}</span>
+
+                       
+                        <span v-else style="color: red;font-weight: bold;">Out of Stock</span>
+
+                        
+                    </p>
+
+                    <p v-show="inStock">
+                        Available for free shipping or pickup at our store!
+                    </p>
+
+                    <p v-if=" selectedOption.quantity> 6">We have multiple sizes and designs available!</p>
+                    <p v-else-if="selectedOption.quantity <= 6 && selectedOption.quantity > 0" style="color:orange; font-weight: bold;">Hurry up, these boxers are almost sold out!</p>
+                    <p v-else style="color: red;font-weight: bold;">Out of Stock</p>
+
+                    <p v-if="selectedOption.quantity > 0 && onSale" style="color:dodgerblue;font-weight: bold;">This item is currently on sale! Grab your pair now!</p>
+                    <br>
+
+                    <h3>Features :</h3>
+                    <ul>
+                        <li v-for="feature in features">{{ feature }}</li>
+                    </ul>
+                    <br>
+
+                    <!-- Image and Color Options -->
+                    <div>
+                        <h1>{{ title }}</h1>
+                        <img v-bind:src="image" :alt="product" class="product-image">
+                        <br>
+                        <h3 :style="styles">Available Colors</h3>
+                        <div class="color-options">
+                            <div 
+                                v-for="(option, index) in options" 
+                                :key="option.id" 
+                                class="color-circle" 
+                                :style="{ backgroundColor: option.color }"
+                                @click="selectOption(option)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart display -->
+                <div class="cart">
+                    Cart ({{ cart }})
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div class="buttons">
+                    <button 
+                        class="button" 
+                        @click="addToCart"
+                        :class="[!selectedOption || selectedOption.quantity === 0 ? 'disabled-btn' : '']">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Remove from Cart Button -->
+                <div class="buttons">
+                    <button class="button" @click="removeFromCart" :class="[cart <= 0 ? 'disabled-btn' : '']">
+                        Remove from Cart
+                    </button>
+                </div>
+
+                <dl class="main-sidebar">
+                    <dt>
+                        Comfort
+                    </dt>
+                    <dd>Made with premium materials for all-day comfort.</dd>
+    
+                    <dt>
+                        Durability
+                    </dt>
+                    <dd>Built to last, even after multiple washes.</dd>
+    
+                    <dt>
+                        Style
+                    </dt>
+                    <dd>Trendy designs to suit every taste.</dd>
+                </dl>
+            </section>
+            <footer>&copy; <span id="year"></span> - Stylish Boxers Co.</footer>
+        </main>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/js.js"></script>
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
+</body>
+
+</html>
